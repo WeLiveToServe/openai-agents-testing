@@ -1,0 +1,20 @@
+#these are the exact requirements to run code using OpenAI agents sdk
+
+#just pipping "openai-agents" will ruin your life, u need
+openai-agents @ git+https://github.com/openai/openai-agents-python.git
+ 
+
+openai-agents  #referrable AFTER git package install
+openai
+typing_extensions
+httpx
+sniffio
+h11
+certifi
+idna
+tqdm
+
+#requirements to implement pretty print response from whisptt
+rich
+markdown
+

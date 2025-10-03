@@ -1,0 +1,33 @@
+(
+name: str, handoff_description: str | None = None, 
+tools: list[Tool] = list, mcp_servers: list[MCPServer] = list, 
+mcp_config: MCPConfig = lambda : MCPConfig(), 
+instructions: str | ((RunContextWrapper[TContext@Agent], 
+Agent[TContext@Agent]) -> MaybeAwaitable[str]) | None = None, 
+prompt: Prompt | DynamicPromptFunction | None = None, 
+handoffs: list[Agent[Any] | Handoff[TContext@Agent, Any]] = list, 
+model: str | Model | None = None, 
+model_settings: ModelSettings = get_default_model_settings, 
+input_guardrails: list[InputGuardrail[TContext@Agent]] = list, 
+output_guardrails: list[OutputGuardrail[TContext@Agent]] = list, 
+output_type: type[Any] | AgentOutputSchemaBase | None = None, 
+hooks: AgentHooks[TContext@Agent] | None = None, 
+tool_use_behavior: StopAtTools |
+ ToolsToFinalOutputFunction[Any] |
+ Literal['run_llm_again', 'stop_on_first_tool']
+ = "run_llm_again", reset_tool_choice: bool = True
+) 
+
+-> Agent[TContext@Agent]
+
+An agent is an AI model configured with instructions, tools, guardrails, handoffs and more.
+
+We strongly recommend passing instructions, which is the "system prompt" for the agent. 
+In addition, you can pass handoff_description, which is a human-readable description of the agent,
+ used when the agent is used inside tools/handoffs.
+
+Agents are generic on the context type. The context is a (mutable) object you create. It is passed to tool functions, handoffs, guardrails, etc.
+
+See AgentBase for base parameters that are shared with RealtimeAgents.
+
+
