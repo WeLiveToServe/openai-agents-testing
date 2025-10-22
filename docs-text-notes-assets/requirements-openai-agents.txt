@@ -1,0 +1,42 @@
+adodbapi
+anyio
+cffi
+colorama
+distro
+httpcore
+keyboard
+numpy
+
+
+# installs the importable module “agents”
+openai-agents @ git+https://github.com/openai/openai-agents-python.git
+# "openai-agents" requires these modules at the agents layer
+typing_extensions
+openai
+httpx
+sniffio
+h11
+certifi
+idna
+tqdm
+
+
+psutil
+pydantic
+pydantic_core
+pydub
+pycparser
+requests
+scipy
+
+sounddevice
+soundfile
+playwright
+
+
+typing_inspection
+
+pywin32
+# provides win32* / win* modules
+           
+wmi
